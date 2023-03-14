@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { OrderContext } from "../../context/OrderContext";
 import axios from "axios";
+import { OrderContext } from "../../context/OrderContext";
 
+//주문 완료 페이지
 const CompletePage = ({ setStep }) => {
   const [orderHistory, setOrderHistory] = useState([]);
-  const [orderData] = useContext(OrderContext);
   const [loading, setLoading] = useState(true);
+  /** useContext 사용
+   * OrderContext라는 Context를 호출하고 해당 내용을 orderData에 할당합니다.
+   *  */
+  const [orderData] = useContext(OrderContext);
 
   useEffect(() => {
     orderCompleted(orderData);
@@ -14,7 +18,7 @@ const CompletePage = ({ setStep }) => {
   const orderCompleted = async (orderData) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/order",
+        "http://localhost:4000/order", // server 폴더의 요청 port번호 :4000
         orderData
       );
       console.log("response", response);
