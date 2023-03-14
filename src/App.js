@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import SummaryPage from "./pages/SummaryPage";
-import OrderPage from "./pages/OrderPage";
-import CompletePage from "./pages/CompletePage";
-import "./App.css";
+import './App.css';
+import SummaryPage from './pages/SummaryPage';
+import OrderPage from './pages/OrderPage';
+import { useState } from 'react';
+import CompletePage from './pages/CompletePage';
 
-const App = () => {
-  const [pageNumber, setPageNumber] = useState(0);
+function App() {
+  const [step, setStep] = useState(0);
   return (
-    <div style={{ padding: "4rem" }}>
-      {pageNumber === 0 && <OrderPage setPageNumber={setPageNumber} />}
-      {pageNumber === 1 && <SummaryPage setPageNumber={setPageNumber} />}
-      {pageNumber === 2 && <CompletePage setPageNumber={setPageNumber} />}
+    <div style={{ padding: '4rem' }}>
+      {step === 0 && <OrderPage setStep={setStep} />}
+      {step === 1 && <SummaryPage setStep={setStep} />}
+      {step === 2 && <CompletePage setStep={setStep} />}
     </div>
   );
-};
+}
 
 export default App;
