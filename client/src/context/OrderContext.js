@@ -7,8 +7,8 @@ import { createContext, useEffect, useMemo, useState } from "react";
  */
 
 // React 기능을 사용하여 context를 생성합니다.
-export const OrderContext = createContext();
-
+const OrderContext = createContext();
+export default OrderContext;
 export function OrderContextProvider(props) {
   // orderCounts라는 state에 map함수를 가진 객체를 할당.
   const [orderCounts, setOrderCounts] = useState({
